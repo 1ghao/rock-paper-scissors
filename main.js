@@ -37,3 +37,17 @@ function playRound(playerSelection, computerSelection) {
     return "Try again you made a typo";
   }
 }
+
+function playGame() {
+  let playerInput = prompt("What is your choice? ");
+  console.log(playRound(playerInput));
+}
+
+const buttons = document.querySelector("#buttons");
+const result = document.querySelector("#result");
+
+buttons.addEventListener("click", (e) => {
+  let target = e.target;
+
+  result.textContent = playRound(target.textContent, getComputerChoice());
+});
